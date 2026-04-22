@@ -3,15 +3,22 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- TODO: Set the document title to the name of your application -->
-    <title>WR152</title>
-    <meta name="description" content="The Evolution of Italian-American Cuisine" />
+    <title>From the Old Country to the American Table</title>
+    <meta name="description" content="An interactive timeline tracing the evolution of Italian-American cuisine." />
     <meta name="author" content="WR152" />
-
-    <!-- TODO: Update og:title to match your application name -->
-    <meta property="og:title" content="WR152 app" />
-    <meta property="og:description" content="WR152 Project" />
+    <meta property="og:title" content="From the Old Country to the American Table" />
+    <meta property="og:description" content="An interactive timeline tracing the evolution of Italian-American cuisine." />
     <meta property="og:type" content="website" />
+    <script>
+      // Restore path redirected through 404.html
+      (function () {
+        var redirect = sessionStorage.redirect;
+        delete sessionStorage.redirect;
+        if (redirect && redirect !== location.href) {
+          history.replaceState(null, null, redirect);
+        }
+      })();
+    </script>
   </head>
 
   <body>

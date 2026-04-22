@@ -34,7 +34,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter>
+      <BrowserRouter basename="/evolution-italian">
         <AnimatedRoutes />
       </BrowserRouter>
     </TooltipProvider>
