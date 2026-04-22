@@ -318,9 +318,9 @@ export const eras: Era[] = [
     title: "Regional Exploration",
     subtitle: "Cacio e Pepe, Neapolitan Pizza, and the Search for the Real Italy",
     preview:
-      "Cheaper flights and Instagram turned American diners into regionalists — trading spaghetti and meatballs for cacio e pepe and arguing over whether a Neapolitan pie needs San Marzano tomatoes.",
+      "Cheaper flights and Instagram turned American diners into regionalists, trading spaghetti and meatballs for cacio e pepe and arguing over whether a Neapolitan pie needs San Marzano tomatoes.",
     description:
-      "As Americans began traveling to Italy and scrolling through food media, \"Italian\" stopped being a single cuisine — and the hunt for the authentic and the regional reshaped menus from coast to coast.",
+      "As Americans began traveling to Italy and scrolling through food media, \"Italian\" stopped being a single cuisine. The hunt for the authentic and the regional reshaped menus from coast to coast.",
     content: [
       {
         type: "paragraph",
@@ -342,7 +342,7 @@ export const eras: Era[] = [
     title: "The Red Sauce Renaissance",
     subtitle: "From Low-Brow Relic to High-Status Heritage",
     preview:
-      "High-end chefs reclaimed veal parmigiana, Carbone made the red-checkered tablecloth expensive, and a hedge fund report shamed Olive Garden for undercooking pasta — red sauce had become legitimate.",
+      "High-end chefs reclaimed veal parmigiana, Carbone made the red-checkered tablecloth expensive, and a hedge fund report shamed Olive Garden for undercooking pasta. Red sauce had finally become legitimate.",
     description:
       "The dishes Italian immigrants invented to survive in America came full circle: reframed as a unique culinary history, elevated by fine dining, and celebrated on social media as authentic American culture.",
     content: [
