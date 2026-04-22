@@ -23,23 +23,36 @@ const TimelineCurve = () => {
   const nodeSpacing = 320;
   const viewBoxHeight = eras.length * nodeSpacing + 150;
 
-  // Stock photos placed at midpoints between every 2nd era (between eras 1-2, 3-4, 5-6, 7-8, 9-10, 11-12)
+  // Stock photos placed at midpoints between every 2nd era, on the side opposite the nearby era's text
+  const base = import.meta.env.BASE_URL;
   const stockPhotos = [
-    "/photos/stock1.jpg",
-    "/photos/stock2.jpg",
-    "/photos/stock3.jpg",
-    "/photos/stock4.webp",
-    "/photos/stock5.jpg",
-    "/photos/stock6.jpg",
+    `${base}photos/stock4.webp`,
+    `${base}photos/stock3.jpg`,
+    `${base}photos/stock1.jpg`,
+    `${base}photos/stock6.jpg`,
+    `${base}photos/stock2.jpg`,
+    `${base}photos/stock5.jpg`,
   ];
-  const stockImgWidth = 580;
-  const stockImgHeight = 140;
-  const stockImgX = (viewBoxWidth - stockImgWidth) / 2; // centered: 60
+  const stockImgWidth = 310;
+  const stockImgHeight = 235;
   const stockPositions = [1, 3, 5, 7, 9, 11].map((eraIndex, i) => {
     const y1 = 100 + eraIndex * nodeSpacing;
-    const y2 = 100 + (eraIndex + 1) * nodeSpacing;
-    const midY = (y1 + y2) / 2;
-    return { src: stockPhotos[i], y: midY - stockImgHeight / 2 };
+    // The upper era drives which side has text; place photo on the opposite side
+    const eraX = eraIndex % 2 === 0 ? 350 : 350 + (eraIndex % 4 === 1 ? 140 : -140);
+    const eraIsLeft = eraX <= 350;
+    // Center vertically in the gap between the two era text boxes
+    // Upper text ends at y1+190, lower text starts at y1+260 — midpoint of gap = y1+225
+    const baseImgCenterY = y1 + 225;
+    // Left-column images sit higher to clear the era text on the opposite side
+    const imgCenterY = eraIsLeft ? baseImgCenterY : baseImgCenterY - 110;
+    const imgY = imgCenterY - stockImgHeight / 2;
+    // Center image in its column (left column: 0–350, right column: 350–700)
+    const imgX = eraIsLeft
+      ? 350 + (350 - stockImgWidth) / 2   // right column center
+      : (350 - stockImgWidth) / 2;         // left column center
+    // Rotate so the bottom of the image faces inward toward the timeline
+    const rotation = eraIsLeft ? 5 : -5;
+    return { src: stockPhotos[i], x: imgX, y: imgY, rotation, cx: imgX + stockImgWidth / 2, cy: imgCenterY };
   });
 
   // Generate alternating positions for the S-curve
@@ -73,28 +86,18 @@ const TimelineCurve = () => {
         preserveAspectRatio="xMidYMid meet"
         style={{ overflow: "visible" }}
       >
-        {/* Clip paths for stock photo rounded corners */}
-        <defs>
-          {stockPositions.map((img, i) => (
-            <clipPath key={`clip-${i}`} id={`stockClip-${i}`}>
-              <rect x={stockImgX} y={img.y} width={stockImgWidth} height={stockImgHeight} rx="8" ry="8" />
-            </clipPath>
-          ))}
-        </defs>
-
-        {/* Stock photos as atmospheric dividers between eras */}
+        {/* Stock photos — rotated so the bottom faces inward toward the timeline */}
         {stockPositions.map((img, i) => (
-          <image
-            key={`stock-${i}`}
-            href={img.src}
-            x={stockImgX}
-            y={img.y}
-            width={stockImgWidth}
-            height={stockImgHeight}
-            preserveAspectRatio="xMidYMid slice"
-            clipPath={`url(#stockClip-${i})`}
-            opacity="0.3"
-          />
+          <g key={`stock-${i}`} transform={`rotate(${img.rotation}, ${img.cx}, ${img.cy})`}>
+            <image
+              href={img.src}
+              x={img.x}
+              y={img.y}
+              width={stockImgWidth}
+              height={stockImgHeight}
+              preserveAspectRatio="xMidYMid meet"
+            />
+          </g>
         ))}
 
         {/* Background path (dim) */}

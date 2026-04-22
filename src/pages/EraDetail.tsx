@@ -95,11 +95,11 @@ const EraDetail = () => {
 
             {/* Era photo */}
             {era.image && (
-              <div className="w-full rounded-lg overflow-hidden mb-12 aspect-[16/7]">
+              <div className="w-full rounded-lg overflow-hidden mb-12">
                 <img
-                  src={era.image}
+                  src={`${import.meta.env.BASE_URL}${era.image}`}
                   alt={era.title}
-                  className="w-full h-full object-cover"
+                  className="w-full h-auto block"
                 />
               </div>
             )}
