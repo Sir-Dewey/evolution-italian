@@ -1,4 +1,5 @@
 import { useParams, useNavigate, useLocation } from "react-router-dom";
+import { useEffect } from "react";
 import { motion, Variants } from "framer-motion";
 import { ArrowLeft } from "lucide-react";
 import { eras } from "@/data/eras";
@@ -28,6 +29,8 @@ const EraDetail = () => {
   
   // Extract the direction (default to 1 if coming from a direct link)
   const direction = location.state?.direction || 1;
+
+  useEffect(() => { window.scrollTo(0, 0); }, [eraId]);
 
   const era = eras.find((e) => e.id === eraId);
   const eraIndex = eras.findIndex((e) => e.id === eraId);
