@@ -93,6 +93,17 @@ const EraDetail = () => {
             {/* Content Divider */}
             <div className="w-16 h-px bg-accent mx-auto mb-12" />
 
+            {/* Era photo */}
+            {era.image && (
+              <div className="w-full rounded-lg overflow-hidden mb-12 aspect-[16/7]">
+                <img
+                  src={era.image}
+                  alt={era.title}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            )}
+
             <div className="prose prose-invert prose-lg mx-auto font-body text-foreground/80 leading-relaxed space-y-8">
               {era.content ? (
                 era.content.map((block, i) =>

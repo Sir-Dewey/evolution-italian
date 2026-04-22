@@ -11,6 +11,7 @@ export interface Era {
   subtitle: string;
   preview: string;
   description: string;
+  image?: string;
   content?: ContentBlock[];
 }
 
@@ -20,6 +21,7 @@ export const eras: Era[] = [
     year: "Pre-1880s",
     title: "Roots in the Motherland",
     subtitle: "Cucina Povera and Regional Scarcity",
+    image: "/photos/Pre-1880s_ Roots in the Motherland.webp",
     preview:
       "Before mass migration, Italian peasants survived on cucina povera: a cuisine of legumes, olive oil, and ingenuity born from regional isolation and extreme poverty.",
     description:
@@ -53,6 +55,7 @@ export const eras: Era[] = [
     year: "1880s–1900",
     title: "The Arrival",
     subtitle: "Bringing the Old World to the New",
+    image: "/photos/The Great Arrival.webp",
     preview:
       "Over four million Southern Italian peasants crossed the Atlantic, carrying a cuisine that would be transformed by the unexpected abundance of the New World.",
     description:
@@ -81,6 +84,7 @@ export const eras: Era[] = [
     year: "1900–1914",
     title: "Tenement Kitchens",
     subtitle: "The Growth of Little Italy",
+    image: "/photos/The growth of little italy.jpg",
     preview:
       "As Little Italys took root in American cities, immigrant kitchens moved from tenement apartments to the street, reinventing Old World recipes with American ingredients and ambition.",
     description:
@@ -113,6 +117,7 @@ export const eras: Era[] = [
     year: "1914–1920",
     title: "War and Shifting Status",
     subtitle: "From Suspicion to Allied Nourishment",
+    image: "/photos/War and Shifting status.webp",
     preview:
       "World War I transformed American attitudes toward Italian food. An ally's cuisine became a symbol of hearty resilience, and new nutritional science reversed decades of suspicion.",
     description:
@@ -128,7 +133,7 @@ export const eras: Era[] = [
       },
       {
         type: "paragraph",
-        text: "As time passed, and Italian Cuisine became more and more accepted into the American diet, professional journals like the Journal of Home Economics were encouraging dietitians to teach immigrants how to cook their traditional foods using American ingredients (like vegetable oils instead of expensive olive oil) rather than trying to force them to adopt a completely \"American\" diet (Levenstein).",
+        text: "Beyond the laboratory, the kitchen became a site for the war effort. As the U.S. Food Administration pushed for meat conservation, the Italian reliance on grains and vegetables was rebranded as 'patriotic frugality.' The tomato, once viewed poorly by American reformers, was reimagined as a 'vitamin-rich' powerhouse. This shift didn't just change what was on the plate; it transformed the Italian immigrant from a 'nutritional outsider' into a model of healthy, wartime resourcefulness. As time passed, and Italian Cuisine became more and more accepted into the American diet, professional journals like the Journal of Home Economics were encouraging dietitians to teach immigrants how to cook their traditional foods using American ingredients (like vegetable oils instead of expensive olive oil) rather than trying to force them to adopt a completely \"American\" diet (Levenstein).",
       },
     ],
   },
@@ -137,6 +142,7 @@ export const eras: Era[] = [
     year: "1920s–1933",
     title: "Prohibition & Glamour",
     subtitle: "Speakeasies, Celebrity, and the Rise of Red Sauce",
+    image: "/photos/1920s-1933_ Prohibition & Glamour.jpg",
     preview:
       "Prohibition transformed Italian restaurants into the most fashionable destinations in America: wine served in coffee cups, celebrity endorsements, and the birth of spaghetti and meatballs.",
     description:
@@ -165,6 +171,7 @@ export const eras: Era[] = [
     year: "1930s–1940s",
     title: "Depression Staples",
     subtitle: "Pasta, Survival, and the Mainstreaming of Red Sauce",
+    image: "/photos/Depression staples.png",
     preview:
       "The Great Depression collapsed decades of anti-immigrant prejudice in a single decade. Pasta and tomato sauce were too cheap and filling to ignore, and Italian food became an American staple.",
     description:
@@ -189,6 +196,7 @@ export const eras: Era[] = [
     year: "1940–1950",
     title: "The GI Influence",
     subtitle: "War, Rationing, and a Nation's Appetite",
+    image: "/photos/The GI Influence.jpg",
     preview:
       "Millions of American soldiers tasted authentic Italian food during the liberation of Italy and came home hungry for more, sparking a surge in pizzerias, cookbooks, and Italian ingredients nationwide.",
     description:
@@ -217,6 +225,7 @@ export const eras: Era[] = [
     year: "1950s",
     title: "The Pizza Explosion",
     subtitle: "From Urban Enclave to National Obsession",
+    image: "/photos/The Pizza Explosion.webp",
     preview:
       "The gas-fired pizza oven sent pizzerias racing into the suburbs, while mainstream magazines taught a nation how to pronounce, hold, and eat a slice of America's new favorite food.",
     description:
@@ -241,6 +250,7 @@ export const eras: Era[] = [
     year: "1960s–1970s",
     title: "Convenience & Authenticity",
     subtitle: "Frozen Lasagna and the Birth of the Authenticity Debate",
+    image: "/photos/The Search for Authenticity.jpg",
     preview:
       "Frozen lasagna conquered the American weeknight while Marcella Hazan challenged everything it stood for. The 1960s and 70s drew a hard line between Italian-American and authentic Italian.",
     description:
@@ -293,6 +303,7 @@ export const eras: Era[] = [
     year: "1980s–1990s",
     title: "The Celebrity Chef",
     subtitle: "Food Network, the Mediterranean Diet, and the Northern Rebrand",
+    image: "/photos/The Celebrity Chef.webp",
     preview:
       "The Food Network turned chefs into educators and \"Northern Italian\" into a prestige label, even as Mario Batali quietly kept Southern flavors on the plate to satisfy American tastes.",
     description:
@@ -317,6 +328,7 @@ export const eras: Era[] = [
     year: "2000s–2010s",
     title: "Regional Exploration",
     subtitle: "Cacio e Pepe, Neapolitan Pizza, and the Search for the Real Italy",
+    image: "/photos/Regional Exploration.jpg",
     preview:
       "Cheaper flights and Instagram turned American diners into regionalists, trading spaghetti and meatballs for cacio e pepe and arguing over whether a Neapolitan pie needs San Marzano tomatoes.",
     description:
@@ -341,6 +353,7 @@ export const eras: Era[] = [
     year: "2010s–Present",
     title: "The Red Sauce Renaissance",
     subtitle: "From Low-Brow Relic to High-Status Heritage",
+    image: "/photos/The Red Sauce Renaissance.jpg",
     preview:
       "High-end chefs reclaimed veal parmigiana, Carbone made the red-checkered tablecloth expensive, and a hedge fund report shamed Olive Garden for undercooking pasta. Red sauce had finally become legitimate.",
     description:

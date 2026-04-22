@@ -20,8 +20,27 @@ const TimelineCurve = () => {
 
   // SPACING FIX: Increased nodeSpacing from 200 to 320 to accommodate text
   const viewBoxWidth = 700;
-  const nodeSpacing = 320; 
+  const nodeSpacing = 320;
   const viewBoxHeight = eras.length * nodeSpacing + 150;
+
+  // Stock photos placed at midpoints between every 2nd era (between eras 1-2, 3-4, 5-6, 7-8, 9-10, 11-12)
+  const stockPhotos = [
+    "/photos/stock1.jpg",
+    "/photos/stock2.jpg",
+    "/photos/stock3.jpg",
+    "/photos/stock4.webp",
+    "/photos/stock5.jpg",
+    "/photos/stock6.jpg",
+  ];
+  const stockImgWidth = 580;
+  const stockImgHeight = 140;
+  const stockImgX = (viewBoxWidth - stockImgWidth) / 2; // centered: 60
+  const stockPositions = [1, 3, 5, 7, 9, 11].map((eraIndex, i) => {
+    const y1 = 100 + eraIndex * nodeSpacing;
+    const y2 = 100 + (eraIndex + 1) * nodeSpacing;
+    const midY = (y1 + y2) / 2;
+    return { src: stockPhotos[i], y: midY - stockImgHeight / 2 };
+  });
 
   // Generate alternating positions for the S-curve
   const eraPositions = eras.map((_, i) => ({
@@ -54,6 +73,30 @@ const TimelineCurve = () => {
         preserveAspectRatio="xMidYMid meet"
         style={{ overflow: "visible" }}
       >
+        {/* Clip paths for stock photo rounded corners */}
+        <defs>
+          {stockPositions.map((img, i) => (
+            <clipPath key={`clip-${i}`} id={`stockClip-${i}`}>
+              <rect x={stockImgX} y={img.y} width={stockImgWidth} height={stockImgHeight} rx="8" ry="8" />
+            </clipPath>
+          ))}
+        </defs>
+
+        {/* Stock photos as atmospheric dividers between eras */}
+        {stockPositions.map((img, i) => (
+          <image
+            key={`stock-${i}`}
+            href={img.src}
+            x={stockImgX}
+            y={img.y}
+            width={stockImgWidth}
+            height={stockImgHeight}
+            preserveAspectRatio="xMidYMid slice"
+            clipPath={`url(#stockClip-${i})`}
+            opacity="0.3"
+          />
+        ))}
+
         {/* Background path (dim) */}
         <path
           d={pathD}
