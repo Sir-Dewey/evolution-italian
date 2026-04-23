@@ -30,17 +30,6 @@ The site covers 13 historical eras:
 
 ---
 
-## Tech Stack
-
-- **React 18** + **TypeScript**
-- **Vite** — build tool
-- **Tailwind CSS** — styling with a custom dark theme
-- **Framer Motion** — scroll-driven animations and page transitions
-- **React Router** — client-side routing between timeline and era detail pages
-- **shadcn/ui** — base UI components
-
----
-
 ## Project Structure
 
 ```
