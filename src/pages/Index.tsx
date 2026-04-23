@@ -77,6 +77,46 @@ const Index = () => {
         <TimelineCurve />
       </section>
 
+      {/* Questions to Think About */}
+      <section className="relative py-20 px-4 border-t border-border">
+        <motion.div
+          className="max-w-3xl mx-auto"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
+          <h2 className="text-3xl md:text-4xl font-display text-foreground mb-3 text-center">
+            Questions to <span className="italic text-accent">Think About</span>
+          </h2>
+          <br></br>
+          <ol className="space-y-8 list-none">
+            {[
+              "When a cuisine crosses an ocean and adapts to a new culture, at what point does it become something entirely new?",
+              "Italian-American food was largely born from poverty and reinvention. How do you think economic circumstances shape the foods we come to think of as comforting or traditional?",
+              "As Italian food became mainstream in America, it was often stripped of its regional specificity. What do we lose (or gain) when a cuisine becomes everyone's food?",
+              "How does the story of Italian-American cuisine relate to your own experience with food and culture?",
+            ].map((q, i) => (
+              <motion.li
+                key={i}
+                className="flex gap-5 items-start"
+                initial={{ opacity: 0, x: -16 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <span className="font-display text-2xl text-accent/60 leading-tight select-none w-6 shrink-0">
+                  {i + 1}.
+                </span>
+                <p className="font-body text-foreground/80 leading-relaxed text-base md:text-lg">
+                  {q}
+                </p>
+              </motion.li>
+            ))}
+          </ol>
+        </motion.div>
+      </section>
+
       {/* Bibliography */}
       <Bibliography />
 
